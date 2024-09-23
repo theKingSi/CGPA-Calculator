@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.col {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.col:last-child {
+    margin-right: 0;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    border-color: #333;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.Tb {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.Tb th, .Tb td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.Tb thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.king, .sol {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.king:hover, .sol:hover {
+    background-color: #218838;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tfoot td {
+    background-color: #f8f9fa;
+}
+
+tfoot td:last-child {
+    color: #007bff;
+}
+
+#show-semester2 {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    margin-top: 30px;
+    padding: 10px;
+    width: 30%;
+}
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CGPA Calculator</title>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <h3>CGPA Calculator</h3>
+        <div class="form">
+        <div class="col">
+            <input type="text" id="course" class="code" placeholder="Course code">
+        </div>
+
+        <div class="col"> <input type="number" id="units" class="units" placeholder="Units" min="1" max="15">
+        </div>
+
+        <div class="col">
+            <select id="grade" class="grade">
+                <option value="">Grade</option>
+                <option value="5">A</option>
+                <option value="4">B</option>
+                <option value="3">C</option>
+                <option value="2">D</option>
+                <option value="1">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+
+         
+        <div class="col">
+            <button id="add" class="btn">Add</button>
+        </div>
+        </div>
+       
+        <table id="table" class="Tb">
+            <thead>
+                <tr>
+                    <th>Course Code</th>
+                    <th>Unit</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+        
+            </tbody>
+            <tfoot id="tfoot">
+        
+            </tfoot>
+        </table>
+        <div class="row">
+            <div class="col">
+                <input id="calc-gp" class="king" type="button" value="Calc GP">
+            </div>
+            <div class="col">
+            <input id="clear" class="sol" type="button" value="Clear">
+            </div>
+        </div>
+
+     <!-- Button to Reveal 2nd Semester -->
+     <button id="show-semester2">Add Semester</button>
+
+        <id id="semester2-section" class="semester-section" style="display: none;">
+            <h2>2nd Semester</h2>
+            <div class="col">
+                <input type="text" id="course2" class="code" placeholder="Course code">
+            </div>
+    
+            <div class="col"> <input type="number" id="units2" class="units" placeholder="Units" min="1" max="15">
+            </div>
+    
+            <div class="col">
+                <select id="grade2" class="grade">
+                    <option value="">Grade</option>
+                    <option value="5">A</option>
+                    <option value="4">B</option>
+                    <option value="3">C</option>
+                    <option value="2">D</option>
+                    <option value="1">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+    
+             
+            <div class="col">
+                <button id="addSecond" class="btn">Add</button>
+            </div>
+            
+           
+            <table id="table2" class="Tb">
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Unit</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody2">
+            
+                </tbody>
+                <tfoot id="tfoot2">
+            
+                </tfoot>
+            </table>
+            <div class="row">
+                <div class="col">
+                    <input id="calc-gpSecond2" class="king" type="button" value="Calc GP">
+                </div>
+                <div class="col">
+                <input id="clear2" class="sol" type="button" value="Clear">
+                </div>
+    </div>
+</id>
+
+        <script src="app.js"></script>
+</body>
+</html>
