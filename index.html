@@ -61,11 +61,17 @@
             </div>
         </div>
 
+        <div id="ShowResult">          
+        </div>
+
+
      <!-- Button to Reveal 2nd Semester -->
      <button id="show-semester2">Add Semester</button>
+     <button id="hide-semester2" style="display: none;">Hide Semester</button>
 
         <id id="semester2-section" class="semester-section" style="display: none;">
             <h2>2nd Semester</h2>
+            <div class="form">
             <div class="col">
                 <input type="text" id="course2" class="code" placeholder="Course code">
             </div>
@@ -89,6 +95,7 @@
             <div class="col">
                 <button id="addSecond" class="btn">Add</button>
             </div>
+        </div>
             
            
             <table id="table2" class="Tb">
@@ -112,8 +119,9 @@
                 </div>
                 <div class="col">
                 <input id="clear2" class="sol" type="button" value="Clear">
-                </div>
+                </div> 
     </div>
+    <div id="ShowResult2"></div>
 </id>
 
         <script src="app.js"></script>

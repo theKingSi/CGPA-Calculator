@@ -2,14 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.getElementById('add');
     const addSecond = document.getElementById('addSecond');
     const calcButton = document.getElementById('calc-gp');
-    const calcButtonSecond = document.getElementById('calc-gpSecond');
+    const calcButtonSecond = document.getElementById('calc-gpSecond2');
     const clearButton = document.getElementById('clear');
+    const clearButtonSecond = document.getElementById('clear2');
     const tbody = document.getElementById('tbody');
     const tfoot = document.getElementById('tfoot');
     const tbody2 = document.getElementById('tbody2');
     const tfoot2 = document.getElementById('tfoot2');
     const showSemester2Button = document.getElementById('show-semester2');
+    const hideSemester2Button = document.getElementById('hide-semester2');
     const semester2Section = document.getElementById('semester2-section');
+    const ShowResult = document.getElementById('ShowResult')
+    const ShowResult2 = document.getElementById('ShowResult2')
     
     let courses = [];
     let coursesSemester2 = [];
@@ -28,17 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 grade: parseInt(grade)
             });
 
+
+
             updateTable();
             clearInputs();
         } else {
-            alert('Please fill all the fields.');
+            ShowResult.innerHTML = `Please fill all the fields.`;
         }
     });
 
    
     calcButton.addEventListener('click', () => {
-        if (courses.length === 0) {
-            alert('Add courses before calculating.');
+        const unit = courses.map((course)=>{
+            return course.units
+        
+        })   
+
+        let dummyunit = 0
+        unit.forEach((el) => dummyunit += el)
+        
+        console.log(dummyunit);
+        
+        if (courses.length === 0 || dummyunit < 12) {
+            ShowResult.innerHTML = `Units should not be less than 12.`;
             return;
         }
 
@@ -85,13 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
             updateTable2();
             clearInputs2();
         } else {
-            alert('Please fill all the fields.');
+            ShowResult2.innerHTML = `Please fill all the fields.`;
         }
     });
 
+
     calcButtonSecond.addEventListener('click', () => {
-        if (coursesSemester2.length === 0) {
-            alert('Add courses before calculating.');
+        const unit = courses.map((course)=>{
+            return course.units
+        
+        }) 
+
+        let dummyunit2 = 0
+        unit.forEach((el) => dummyunit2 += el)
+        
+        console.log(dummyunit2);
+
+        if (coursesSemester2.length === 0 || dummyunit2 < 12) {
+            ShowResult2.innerHTML = `Units should not be less than 12.`;
             return;
         }
 
@@ -99,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalPoints2 = 0;
 
         coursesSemester2.forEach(course => {
-            totalUnits2 += coursesSemester2.units;
-            totalPoints2 += coursesSemester2.units * coursesSemester2.grade;
+            totalUnits2 += course.units;
+            totalPoints2 += course.units * course.grade;
         });
 
         const gpa2 = (totalPoints2 / totalUnits2).toFixed(2);
@@ -111,6 +138,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${gpa2}</td>
             </tr>
         `;
+    });
+
+    clearButtonSecond.addEventListener('click', () => {
+        coursesSemester2 = [];
+        updateTable2();
+        tfoot2.innerHTML = '';
     });
 
 
@@ -152,10 +185,37 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('grade2').value = '';
     }
 
+const button = true
+  
+
     showSemester2Button.addEventListener('click', () => {
+
+        
+        
         semester2Section.style.display = 'block';
         showSemester2Button.style.display = 'none';
+        hideSemester2Button.style.display = 'block';
+        
+        
+        
     });
+    
+    
+    
+    hideSemester2Button.addEventListener('click', () => {
+         showSemester2Button.style.display = 'block';
+         semester2Section.style.display = 'none';
+        //  hideSemester2Button.style.display = 'block';
+        });
+
+
+      
+
+
+
+    
+
+    
 
     function getGradeLetter(grade) {
         switch (grade) {
@@ -168,3 +228,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
