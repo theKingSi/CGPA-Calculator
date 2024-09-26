@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addSecond = document.getElementById('addSecond');
     const calcButton = document.getElementById('calc-gp');
     const calcButtonSecond = document.getElementById('calc-gpSecond2');
+    const calcCGPA = document.getElementById('Cal-Cgpa');
     const clearButton = document.getElementById('clear');
     const clearButtonSecond = document.getElementById('clear2');
     const tbody = document.getElementById('tbody');
@@ -12,12 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const showSemester2Button = document.getElementById('show-semester2');
     const hideSemester2Button = document.getElementById('hide-semester2');
     const semester2Section = document.getElementById('semester2-section');
+    const printButton = document.getElementById('print')
     const ShowResult = document.getElementById('ShowResult')
     const ShowResult2 = document.getElementById('ShowResult2')
+    const ShowCGPAResult = document.getElementById('ShowCGPAResult')
+    const ShowPrintError = document.getElementById('ShowPrint')
+    const showCal = document.getElementById('CGPA')
     
     let courses = [];
     let coursesSemester2 = [];
-    let gpa1 = 0, gpa2 = 0;
+    let gpa = 0, gpa2 = 0;
+    let cgpa = 0;
+
+
+
+    function showErrorMessage(element, message, duration = 2000) {
+        element.innerHTML = message;
+        setTimeout(() => {
+            element.innerHTML = '';
+        }, duration);
+    }
 
     addButton.addEventListener('click', () => {
         const courseCode = document.getElementById('course').value;
@@ -37,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateTable();
             clearInputs();
         } else {
-            ShowResult.innerHTML = `Please fill all the fields.`;
+            showErrorMessage(ShowResult, 'Please fill all the fields.');
         }
     });
 
@@ -51,10 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let dummyunit = 0
         unit.forEach((el) => dummyunit += el)
         
-        console.log(dummyunit);
         
         if (courses.length === 0 || dummyunit < 12) {
-            ShowResult.innerHTML = `Units should not be less than 12.`;
+            showErrorMessage(ShowResult, 'Units should not be less than 12.');
             return;
         }
 
@@ -70,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tfoot.innerHTML = `
             <tr>
-                <td colspan="2">Total CGPA</td>
+                <td colspan="2">Total GPA</td>
                 <td>${gpa}</td>
             </tr>
         `;
@@ -101,24 +115,23 @@ document.addEventListener('DOMContentLoaded', () => {
             updateTable2();
             clearInputs2();
         } else {
-            ShowResult2.innerHTML = `Please fill all the fields.`;
+            showErrorMessage(ShowResult2, 'Please fill all the fields.');
         }
     });
 
 
     calcButtonSecond.addEventListener('click', () => {
-        const unit = courses.map((course)=>{
+        const unit2 = coursesSemester2.map((course)=>{
             return course.units
         
         }) 
 
         let dummyunit2 = 0
-        unit.forEach((el) => dummyunit2 += el)
+        unit2.forEach((el) => dummyunit2 += el)
         
-        console.log(dummyunit2);
 
         if (coursesSemester2.length === 0 || dummyunit2 < 12) {
-            ShowResult2.innerHTML = `Units should not be less than 12.`;
+            showErrorMessage(ShowResult2, 'Units should not be less than 12.');
             return;
         }
 
@@ -134,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tfoot2.innerHTML = `
             <tr>
-                <td colspan="2">Total CGPA</td>
+                <td colspan="2">Total GPA</td>
                 <td>${gpa2}</td>
             </tr>
         `;
@@ -185,38 +198,46 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('grade2').value = '';
     }
 
-const button = true
-  
 
-    showSemester2Button.addEventListener('click', () => {
 
-        
-        
-        semester2Section.style.display = 'block';
-        showSemester2Button.style.display = 'none';
-        hideSemester2Button.style.display = 'block';
-        
-        
-        
+     showSemester2Button.addEventListener('click', () => {
+        semester2Section.style.display = 'block'; 
+        showCal.style.display = 'block'
+        showSemester2Button.style.display = 'block'; 
+        hideSemester2Button.style.display = 'block'; 
+
     });
-    
-    
-    
+
     hideSemester2Button.addEventListener('click', () => {
-         showSemester2Button.style.display = 'block';
-         semester2Section.style.display = 'none';
-        //  hideSemester2Button.style.display = 'block';
-        });
+        semester2Section.style.display = 'none';
+        showSemester2Button.style.display = 'block'; 
+        hideSemester2Button.style.display = 'none';
+        showCal.style.display = 'none'
+    });
+
+
+
+    calcCGPA.addEventListener('click', () => {
+        if (gpa && gpa2) {
+            cgpa = ((parseFloat(gpa) + parseFloat(gpa2)) / 2).toFixed(2);  
+            ShowCGPAResult.innerHTML = `Your CGPA is: ${cgpa}`;
+        } else {
+            showErrorMessage(ShowCGPAResult, 'Please calculate GPA for both semesters.');
+        }
+        console.log(cgpa)
+    });
+
+
+    printButton.addEventListener('click', () => {
+        if (!gpa && !gpa2 && !cgpa) {
+            showErrorMessage(ShowPrintError, 'Nothing to print.');
+        } else {
+            window.print();
+        }
+    });
 
 
       
-
-
-
-    
-
-    
-
     function getGradeLetter(grade) {
         switch (grade) {
             case 5: return 'A';

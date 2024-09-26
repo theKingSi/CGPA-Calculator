@@ -10,7 +10,7 @@
     
     
     <div class="container">
-        <h3>CGPA Calculator</h3>
+        <h3>CGPA<span>Calculator</span></h3>
         <div class="form">
         <div class="col">
             <input type="text" id="course" class="code" placeholder="Course code">
@@ -61,16 +61,16 @@
             </div>
         </div>
 
-        <div id="ShowResult">          
+        <div id="ShowResult" class="error">          
         </div>
 
 
      <!-- Button to Reveal 2nd Semester -->
-     <button id="show-semester2">Add Semester</button>
-     <button id="hide-semester2" style="display: none;">Hide Semester</button>
+
+     
 
         <id id="semester2-section" class="semester-section" style="display: none;">
-            <h2>2nd Semester</h2>
+            <h2>2nd<span>Semester</span></h2>
             <div class="form">
             <div class="col">
                 <input type="text" id="course2" class="code" placeholder="Course code">
@@ -121,8 +121,28 @@
                 <input id="clear2" class="sol" type="button" value="Clear">
                 </div> 
     </div>
-    <div id="ShowResult2"></div>
+    <div id="ShowResult2" class="error"></div>
+    <button id="Cal-Cgpa" class="king">Cal CGPA</button>
+    <div id="ShowCGPAResult" class="error"></div>
 </id>
+
+<button id="show-semester2">Add Semester</button>
+
+
+<div id="CGPA" style="display: none;">
+    <div id="CGPAcal" class="row">
+      <div class="col">  
+        <button id="hide-semester2" class="king" style="display: none;">Hide Semester</button>
+      </div>
+      <div class="col">
+        <button id="print" class="sol">Print</button>
+    </div>
+</div>
+<div id="ShowPrint" class="error"></div>
+</div>
+
+
+
 
         <script src="app.js"></script>
 </body>
