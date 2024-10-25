@@ -1,193 +1,147 @@
+:root {
+    --primary-color: #143253;
+    --secondary-color: #a8a2a2;
+    --error-color: #d32f2f;
+    --text-dark: #212529;
+  }
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.container {
-    background-color: white;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    background: linear-gradient(to right, #A0C4E8, #ebf1f7); 
+    color: #333;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
 }
 
-h3 {
-    text-align: center;
+/* Main container styling */
+#semester-forms {
     margin-bottom: 20px;
-    color: #007bff;
-    font-size: 15px;
-    font-family: cursive;
-    text-shadow: 5px 5px 5px #007bff;
-}
-
-h3:hover{
-    transform: scale(1.5);
-    transition: 2s;
-}
-
-.form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.col {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.col:last-child {
-    margin-right: 0;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-}
-
-input:focus, select:focus {
-    border-color: #333;
-}
-
-.btn {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-    transform: rotateX('180deg');
-    transition: 2s;
-}
-
-.Tb {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.Tb th, .Tb td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
-.Tb thead {
-    background-color: #007bff;
-    color: white;
-}
-
-.king, .sol {
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-    padding: 10px;
-    box-shadow: 2px 2px 2px #000;
-}
-
-.king:hover, .sol:hover {
-    background-color: #218838;
-}
-
-.king:hover, .sol:active{
-    background-color: #007bff;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-}
-
-tfoot {
-    font-weight: bold;
-}
-
-tfoot td {
-    background-color: #f8f9fa;
-}
-
-tfoot td:last-child {
-    color: #007bff;
-}
-
-#show-semester2 {
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    margin-top: 30px;
-    padding: 10px;
-    width: 30%;
-    box-shadow: 2px 2px 2px #000;
-}
-
-#show-semester2:hover{
-    background-color: #218838;
-}
-
-#show-semester2:active{
-    background-color: #007bff;
-}
-
-#Cal-Cgpa {
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    margin-top: 30px;
-    padding: 10px;
-    width: 100%;
-}
-
-.error{
-    margin-top: 10px;
-    color: #ff0000;
-    font-family: cursive;
-    font-weight: bold;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 30px;
-    color: #007bff;
-    font-size: 16px;
-    font-family: cursive;
-    text-shadow: 5px 5px 5px #007bff;
+    margin-bottom: 10px;
+    color: #f5fafc;
+    text-transform: uppercase;
 }
 
-button{
+/* Input fields styling */
+input[type="text"],
+input[type="number"],
+button, select {
+    padding: 12px;
+    margin: 5px 0;
+    border: 2px solid #0765C9; 
+    border-radius: 15px;
     width: 100%;
+    transition: border-color 0.3s ease, transform 0.2s;
+}
+
+
+input:focus {
+    border-color: #0765C9; 
+}
+
+
+
+/* Button styling */
+button {
+    background-color: #0765C9; /* Teal background */
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #143253; /* Darker teal on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
     padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
+    border: 2px solid #00796b; /* Teal border for table cells */
+    text-align: left;
 }
 
-span{
-    color: #28a745;
-    font-size: 25px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-shadow: 5px 5px 5px #28a745;
+th {
+    background-color: #004d40; /* Darker teal for header */
+    color: white;
 }
 
+tfoot {
+    background-color: #b2dfdb; /* Light teal for footer */
+    font-weight: bold;
+}
 
+/* Error message styling */
+#error1,
+#error2,
+#error3,
+#error4,
+#error5 {
+    margin-top: 10px;
+    color: var(--error-color); /* Red for error messages */
+    font-weight: bold;
+}
 
+/* Result display styling */
+#ShowCGPAResult {
+    margin-top: 20px;
+    font-size: 1.5em; /* Larger font for result */
+    font-weight: bold;
+    color: #00796b; /* Teal for results */
+}
 
+/* Print result styling */
+#ShowPrint {
+    margin-top: 20px;
+    color: #388e3c; /* Green for print result */
+}
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="number"],
+    button {
+        font-size: 16px; /* Slightly larger font on mobile */
+    }
+}
 
+@media (min-width: 768px) {
+    /* Make the desktop view similar to mobile */
+    body {
+        padding: 10px 30px; /* Add horizontal padding */
+    }
+
+    h2 {
+        text-align: center; /* Center headings on larger screens */
+    }
+
+    button {
+        margin-bottom: 15px; /* Space buttons apart */
+    }
+
+    table {
+        margin-top: 15px; /* Space above the table */
+    }
+
+    #ShowCGPAResult,
+    #ShowPrint {
+        text-align: center; /* Center text on larger screens */
+    }
+}
