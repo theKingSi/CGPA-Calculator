@@ -103,7 +103,7 @@ function addSemesterForm(semesterNumber) {
     document.getElementById(`calc-gpa${semesterNumber}`).addEventListener('click', () => {
         const totalUnits = courses.reduce((sum, course) => sum + course.units, 0);
         if (totalUnits < 12) {
-            document.getElementById(`error${semesterNumber}`).innerHTML = 'Error: Total units must be at least 12 to calculate GPA.';
+            document.getElementById(`error${semesterNumber}`).innerHTML = 'Error: Total units must be at least 12';
             return; // Stop the function execution
         }
 

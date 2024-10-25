@@ -2,7 +2,8 @@
     --primary-color: #143253;
     --secondary-color: #a8a2a2;
     --error-color: #d32f2f;
-    --text-dark: #212529;
+    --table: #0765C9;
+    ;
   }
 
 
@@ -24,10 +25,18 @@ body {
     margin-bottom: 20px;
 }
 
-h2 {
-    margin-bottom: 10px;
-    color: #f5fafc;
+h1{
+    margin-bottom: 30px;
     text-transform: uppercase;
+    text-align: center;
+    /* align-items: center; */
+}
+
+h2 {
+    margin-bottom: 6px;
+    color: #0765C9;
+    text-transform: uppercase;
+    margin-top: 30px;
 }
 
 /* Input fields styling */
@@ -36,7 +45,7 @@ input[type="number"],
 button, select {
     padding: 12px;
     margin: 5px 0;
-    border: 2px solid #0765C9; 
+    border: 2px solid var(--primary-color); 
     border-radius: 15px;
     width: 100%;
     transition: border-color 0.3s ease, transform 0.2s;
@@ -51,7 +60,7 @@ input:focus {
 
 /* Button styling */
 button {
-    background-color: #0765C9; /* Teal background */
+    background-color: var(--primary-color); /* Teal background */
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -61,8 +70,10 @@ button {
 }
 
 button:hover {
-    background-color: #143253; /* Darker teal on hover */
+    background-color: #eee7e7;
+    border: 2px solid var(--primary-color);
     transform: translateY(-2px); /* Slight lift effect */
+    color: var(--primary-color);
 }
 
 /* Table styling */
@@ -74,12 +85,13 @@ table {
 
 th, td {
     padding: 10px;
-    border: 2px solid #00796b; /* Teal border for table cells */
+    border: 2px solid var(--primary-color); /* Teal border for table cells */
     text-align: left;
+    text-transform: uppercase;
 }
 
 th {
-    background-color: #004d40; /* Darker teal for header */
+    background-color: var(--table); /* Darker teal for header */
     color: white;
 }
 
