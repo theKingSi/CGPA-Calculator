@@ -76,6 +76,10 @@ button:hover {
     color: var(--primary-color);
 }
 
+.luf{
+    background-color: var(--error-color);
+}
+
 /* Table styling */
 table {
     width: 100%;

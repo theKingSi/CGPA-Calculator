@@ -53,7 +53,7 @@ function addSemesterForm(semesterNumber) {
             <option value="0">F</option>
         </select>
         <button id="addCourse${semesterNumber}">Add Course</button>
-        <button id="clear${semesterNumber}">Clear Courses</button>
+        <button class="luf" id="clear${semesterNumber}">Clear Courses</button>
         <table id="outline${semesterNumber}" style="display: none;">  <!-- Changed id to be unique per semester -->
             <thead>
                 <tr>
@@ -129,7 +129,7 @@ function addSemesterForm(semesterNumber) {
                 <td>${course.code}</td>
                 <td>${course.units}</td>
                 <td>${getGradeLetter(course.grade)}</td>
-                <td><button data-index="${index}">Del</button></td>
+                <td><button class="luf" data-index="${index}">Del</button></td>
             `;
             tbody.appendChild(row);
 
